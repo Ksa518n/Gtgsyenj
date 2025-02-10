@@ -67,6 +67,12 @@ function displayProducts() {
 }
 
 // حذف منتج
+if (username === 'Admin' && password === 'Admin518n518') {
+    localStorage.setItem('isAdminLoggedIn', 'true');
+    window.location.href = '/Gtgsyenj/admin-dashboard.html';  // تعديل المسار ليشمل اسم المستودع
+} else {
+    document.getElementById('login-message').innerText = 'اسم المستخدم أو كلمة المرور غير صحيحة.';
+}
 function deleteProduct(index) {
     let products = JSON.parse(localStorage.getItem('products')) || [];
     products.splice(index, 1);
