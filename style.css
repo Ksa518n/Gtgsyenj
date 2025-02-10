@@ -1,148 +1,73 @@
-/* تنسيق عام */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
     direction: rtl;
+    text-align: right;
 }
 
-header {
-    background-color: #2d5a27;
+header, footer {
+    background-color: #333;
     color: white;
-    padding: 15px;
+    padding: 10px 20px;
     text-align: center;
-}
-
-header h1 {
-    margin: 0;
 }
 
 nav a {
     color: white;
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
-    font-weight: bold;
 }
 
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 20px;
-}
-
-footer {
-    background-color: #2d5a27;
+.hero {
+    background: url('sheep.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
     color: white;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
 
-/* تنسيق المنتجات */
-.product-grid {
+.product-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+    padding: 20px;
 }
 
 .product-item {
-    background-color: white;
+    background: white;
     padding: 15px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.product-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.product-item h3 {
-    margin: 10px 0 5px;
-}
-
-.product-item p {
-    margin: 5px 0;
-}
-
-.product-item button {
-    background-color: #c0392b;
+.sidebar {
+    width: 200px;
+    background: #333;
     color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.product-item button:hover {
-    background-color: #e74c3c;
-}
-
-/* تنسيق صفحة تسجيل الدخول */
-.login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    background-color: white;
+    position: fixed;
+    height: 100vh;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.login-container label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+.dashboard-content {
+    margin-right: 220px;
+    padding: 20px;
 }
 
-.login-container input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-container button {
-    width: 100%;
-    background-color: #2d5a27;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.login-container button:hover {
-    background-color: #3c763d;
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.logout-btn {
-    background-color: #c0392b;
+button {
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
-    position: absolute;
-    top: 15px;
-    left: 15px;
 }
 
-.logout-btn:hover {
-    background-color: #e74c3c;
+button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
 }
