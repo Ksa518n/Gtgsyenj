@@ -59,3 +59,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadProducts(); // تحميل المنتجات عند فتح الصفحة
 });
+window.location.href = 'https://ksa518n.github.io/Gtgsyenj/admin-dashboard.html';
