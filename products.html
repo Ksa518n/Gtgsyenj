@@ -77,3 +77,37 @@ function displayProductsFromStorage() {
         `;
     });
 }
+<section class="products">
+    <h2>منتجاتنا</h2>
+    <div id="product-list"></div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const productList = document.getElementById('product-list');
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product-item');
+
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" style="width: 200px; height: 200px;">
+                <h3>${product.name}</h3>
+                <p>الوزن: ${product.weight} كجم</p>
+                <p>العمر: ${product.age} شهور</p>
+                <p>السعر: ${product.price} ريال</p>
+                <button onclick="addToCart('${product.name}', ${product.price})">أضف للسلة</button>
+            `;
+
+            productList.appendChild(productDiv);
+        });
+    });
+
+    function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('تمت إضافة المنتج للسلة!');
+    }
+</script>
