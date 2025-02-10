@@ -59,3 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadProducts(); // تحميل المنتجات عند فتح الصفحة
 });
+if (username === 'Admin' && password === 'Admin518n518') {
+    localStorage.setItem('isAdminLoggedIn', 'true');
+    window.location.href = '/Gtgsyenj/admin-dashboard.html';  // تأكد من اسم المستودع
+} else {
+    document.getElementById('login-message').innerText = 'اسم المستخدم أو كلمة المرور غير صحيحة.';
+}
