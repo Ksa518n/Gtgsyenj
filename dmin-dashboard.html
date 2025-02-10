@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الأدمن - أبو نادر للحلال</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>لوحة تحكم الأدمن</h1>
+        <nav>
+            <a href="products.html">عرض المنتجات</a>
+            <button onclick="logout()">تسجيل الخروج</button>
+        </nav>
+    </header>
+
+    <section class="admin-panel">
+        <h2>إضافة منتج جديد</h2>
+        <form id="add-product-form">
+            <label for="product-name">اسم المنتج:</label>
+            <input type="text" id="product-name" required>
+
+            <label for="product-weight">الوزن (كجم):</label>
+            <input type="number" id="product-weight" required>
+
+            <label for="product-age">العمر (شهور):</label>
+            <input type="number" id="product-age" required>
+
+            <label for="product-price">السعر (ريال):</label>
+            <input type="number" id="product-price" required>
+
+            <label for="product-image">رابط الصورة:</label>
+            <input type="text" id="product-image" required>
+
+            <button type="submit">إضافة المنتج</button>
+        </form>
+
+        <h2>قائمة المنتجات</h2>
+        <div id="product-list"></div>
+    </section>
+
+    <script src="admin.js"></script>
+</body>
+</html>
