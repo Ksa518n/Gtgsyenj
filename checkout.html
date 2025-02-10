@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدفع - أبو نادر للحلال</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script> <!-- مكتبة Stripe -->
+</head>
+<body>
+    <header>
+        <h1>الدفع</h1>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="cart.html">سلة المشتريات</a>
+        </nav>
+    </header>
 
+    <section class="checkout">
+        <h2>معلومات الدفع</h2>
+        <form id="payment-form">
+            <div id="card-element"><!-- عنصر بطاقة الدفع --></div>
+            <button id="submit">إتمام الدفع</button>
+            <p id="payment-message"></p>
+        </form>
+    </section>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
