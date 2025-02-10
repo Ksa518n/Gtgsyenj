@@ -9,6 +9,8 @@
         body {
             background-color: #f4f4f4;
             font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
         header {
             background-color: #2c3e50;
@@ -18,7 +20,7 @@
         }
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
         }
@@ -26,8 +28,12 @@
             background-color: white;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
         }
         .product-item img {
             width: 100%;
@@ -36,10 +42,13 @@
             border-radius: 8px;
         }
         .product-item h3 {
-            color: #34495e;
+            color: #2c3e50;
+            font-size: 20px;
+            margin: 10px 0;
         }
         .product-item p {
             color: #7f8c8d;
+            margin: 5px 0;
         }
         .buy-btn {
             background-color: #27ae60;
@@ -49,6 +58,11 @@
             border-radius: 4px;
             margin-top: 10px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .buy-btn:hover {
+            background-color: #1e8449;
         }
     </style>
 </head>
@@ -57,12 +71,18 @@
         <h1>أبو نادر للحلال</h1>
     </header>
 
-    <section class="product-grid" id="main-product-list"></section>
+    <section class="product-grid" id="main-product-list">
+        <!-- سيتم تحميل المنتجات هنا -->
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const productList = document.getElementById('main-product-list');
             const products = JSON.parse(localStorage.getItem('products')) || [];
+
+            if (products.length === 0) {
+                productList.innerHTML = '<p style="text-align: center; color: #7f8c8d;">لا توجد منتجات حالياً.</p>';
+            }
 
             products.forEach(product => {
                 const productDiv = document.createElement('div');
