@@ -11,103 +11,19 @@
         <h1>منتجاتنا</h1>
         <nav>
             <a href="index.html">الرئيسية</a>
-            <a href="cart.html">سلة المشتريات</a>
+            <a href="products.html">منتجاتنا</a>
+            <a href="contact.html">تواصل معنا</a>
         </nav>
     </header>
 
-    <section class="products-container">
-        <div class="product">
-            <img src="sheep1.jpg" alt="خروف نجدي">
-            <h3>خروف نجدي</h3>
-            <p>وزن: 50 كجم - العمر: 6 شهور</p>
-            <p>السعر: 1500 ريال</p>
-            <button onclick="addToCart('خروف نجدي', 1500)">أضف للسلة</button>
-        </div>
-
-        <div class="product">
-            <img src="sheep2.jpg" alt="خروف نعيمي">
-            <h3>خروف نعيمي</h3>
-            <p>وزن: 45 كجم - العمر: 5 شهور</p>
-            <p>السعر: 1400 ريال</p>
-            <button onclick="addToCart('خروف نعيمي', 1400)">أضف للسلة</button>
-        </div>
-
-        <div class="product">
-            <img src="sheep3.jpg" alt="خروف سواكني">
-            <h3>خروف سواكني</h3>
-            <p>وزن: 55 كجم - العمر: 7 شهور</p>
-            <p>السعر: 1600 ريال</p>
-            <button onclick="addToCart('خروف سواكني', 1600)">أضف للسلة</button>
-        </div>
-
-        <div class="product">
-            <img src="sheep4.jpg" alt="خروف حرّي">
-            <h3>خروف حرّي</h3>
-            <p>وزن: 48 كجم - العمر: 5 شهور</p>
-            <p>السعر: 1450 ريال</p>
-            <button onclick="addToCart('خروف حرّي', 1450)">أضف للسلة</button>
-        </div>
+    <section class="product-container" id="product-list">
+        <!-- المنتجات ستظهر هنا من JavaScript -->
     </section>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 أبو نادر للحلال. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="products.js"></script>
 </body>
 </html>
-// عرض المنتجات من localStorage
-window.onload = function() {
-    if (window.location.pathname.includes('products.html')) {
-        displayProductsFromStorage();
-    }
-};
-
-function displayProductsFromStorage() {
-    const productsContainer = document.querySelector('.products-container');
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-
-    productsContainer.innerHTML = ''; // تنظيف المنتجات القديمة
-
-    products.forEach(product => {
-        productsContainer.innerHTML += `
-            <div class="product">
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>وزن: ${product.weight} كجم - العمر: ${product.age} شهور</p>
-                <p>السعر: ${product.price} ريال</p>
-                <button onclick="addToCart('${product.name}', ${product.price})">أضف للسلة</button>
-            </div>
-        `;
-    });
-}
-<section class="products">
-    <h2>منتجاتنا</h2>
-    <div id="product-list"></div>
-</section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const productList = document.getElementById('product-list');
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-
-        products.forEach(product => {
-            const productDiv = document.createElement('div');
-            productDiv.classList.add('product-item');
-
-            productDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.name}" style="width: 200px; height: 200px;">
-                <h3>${product.name}</h3>
-                <p>الوزن: ${product.weight} كجم</p>
-                <p>العمر: ${product.age} شهور</p>
-                <p>السعر: ${product.price} ريال</p>
-                <button onclick="addToCart('${product.name}', ${product.price})">أضف للسلة</button>
-            `;
-
-            productList.appendChild(productDiv);
-        });
-    });
-
-    function addToCart(name, price) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push({ name, price });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert('تمت إضافة المنتج للسلة!');
-    }
-</script>
