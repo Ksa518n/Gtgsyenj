@@ -73,3 +73,9 @@ function deleteProduct(index) {
     localStorage.setItem('products', JSON.stringify(products));
     displayProducts();
 }
+if (username === 'Admin' && password === 'Admin518n518') {
+    localStorage.setItem('isAdminLoggedIn', 'true'); // تخزين حالة تسجيل الدخول
+    window.location.href = 'admin-dashboard.html';   // توجيه إلى لوحة التحكم
+} else {
+    document.getElementById('login-message').innerText = 'اسم المستخدم أو كلمة المرور غير صحيحة.';
+}
