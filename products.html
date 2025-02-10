@@ -52,3 +52,28 @@
     <script src="script.js"></script>
 </body>
 </html>
+// عرض المنتجات من localStorage
+window.onload = function() {
+    if (window.location.pathname.includes('products.html')) {
+        displayProductsFromStorage();
+    }
+};
+
+function displayProductsFromStorage() {
+    const productsContainer = document.querySelector('.products-container');
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+
+    productsContainer.innerHTML = ''; // تنظيف المنتجات القديمة
+
+    products.forEach(product => {
+        productsContainer.innerHTML += `
+            <div class="product">
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>وزن: ${product.weight} كجم - العمر: ${product.age} شهور</p>
+                <p>السعر: ${product.price} ريال</p>
+                <button onclick="addToCart('${product.name}', ${product.price})">أضف للسلة</button>
+            </div>
+        `;
+    });
+}
