@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجاتنا - أبو نادر للحلال</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>منتجاتنا</h1>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="cart.html">سلة المشتريات</a>
+        </nav>
+    </header>
 
+    <section class="products">
+        <div class="product">
+            <img src="sheep1.jpg" alt="خروف نجدي">
+            <h3>خروف نجدي</h3>
+            <p>وزن: 50 كجم - العمر: 6 شهور</p>
+            <p>السعر: 1500 ريال</p>
+            <button onclick="addToCart('خروف نجدي', 1500)">أضف للسلة</button>
+        </div>
+
+        <div class="product">
+            <img src="sheep2.jpg" alt="خروف نعيمي">
+            <h3>خروف نعيمي</h3>
+            <p>وزن: 45 كجم - العمر: 5 شهور</p>
+            <p>السعر: 1400 ريال</p>
+            <button onclick="addToCart('خروف نعيمي', 1400)">أضف للسلة</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
