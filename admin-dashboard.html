@@ -7,41 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>لوحة تحكم الأدمن</h1>
-        <button onclick="logout()" class="logout-btn">تسجيل الخروج</button>
-    </header>
+    <aside class="sidebar">
+        <h3>لوحة التحكم</h3>
+        <ul>
+            <li><a href="#" id="add-product-link">إضافة منتج</a></li>
+            <li><a href="#" id="manage-products-link">إدارة المنتجات</a></li>
+            <li><a href="#" onclick="logout()">تسجيل الخروج</a></li>
+        </ul>
+    </aside>
 
-    <main>
-        <section class="form-container">
+    <main class="dashboard-content">
+        <section id="add-product-section" class="hidden">
             <h2>إضافة منتج جديد</h2>
             <form id="add-product-form">
-                <label for="product-name">اسم المنتج:</label>
-                <input type="text" id="product-name" placeholder="ادخل اسم المنتج" required>
-
-                <label for="product-weight">الوزن (كجم):</label>
-                <input type="number" id="product-weight" placeholder="ادخل الوزن" required>
-
-                <label for="product-age">العمر (بالشهور):</label>
-                <input type="number" id="product-age" placeholder="ادخل العمر" required>
-
-                <label for="product-price">السعر (ريال):</label>
-                <input type="number" id="product-price" placeholder="ادخل السعر" required>
-
-                <label for="product-image">رابط الصورة:</label>
-                <input type="url" id="product-image" placeholder="ادخل رابط الصورة" required>
-
+                <input type="text" id="product-name" placeholder="اسم المنتج" required>
+                <input type="number" id="product-weight" placeholder="الوزن (كجم)" required>
+                <input type="number" id="product-age" placeholder="العمر (شهور)" required>
+                <input type="number" id="product-price" placeholder="السعر (ريال)" required>
+                <input type="text" id="product-image" placeholder="رابط الصورة" required>
                 <button type="submit">إضافة المنتج</button>
             </form>
         </section>
 
-        <section id="product-list" class="product-grid"></section>
+        <section id="manage-products-section" class="hidden">
+            <h2>إدارة المنتجات</h2>
+            <div id="product-list"></div>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2024 أبو نادر للحلال</p>
-    </footer>
-
-    <script src="admin.js"></script>
+    <script src="admin-dashboard.js"></script>
 </body>
 </html>
