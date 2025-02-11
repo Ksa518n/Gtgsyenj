@@ -10,3 +10,6 @@ document.getElementById('admin-login-form').addEventListener('submit', function(
         document.getElementById('login-message').innerText = 'اسم المستخدم أو كلمة المرور غير صحيحة.';
     }
 });
+if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+    window.location.href = 'admin-login.html';
+}
